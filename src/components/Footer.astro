@@ -1,0 +1,182 @@
+---
+const currentYear = new Date().getFullYear();
+
+const quickLinks = [
+  { label: 'Inicio', href: '#inicio' },
+  { label: 'Servicios', href: '#servicios' },
+  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Casos de Éxito', href: '#casos' },
+  { label: 'Metodología', href: '#metodologia' },
+  { label: 'Equipo', href: '#equipo' },
+  { label: 'Contacto', href: '#contacto' },
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <!-- Brand -->
+      <div class="footer__brand">
+        <a href="#inicio" class="footer__logo" aria-label="SOTUBA - Inicio">
+          <svg class="footer__logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="footer-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="hsl(215, 65%, 38%)"/>
+                <stop offset="100%" stop-color="hsl(192, 75%, 48%)"/>
+              </linearGradient>
+            </defs>
+            <path d="M35 20 L55 20 L65 38 L55 56 L35 56 L25 38 Z" stroke="url(#footer-logo-grad)" stroke-width="3.5" stroke-linejoin="round" fill="none"/>
+            <path d="M45 44 L65 44 L75 62 L65 80 L45 80 L35 62 Z" stroke="url(#footer-logo-grad)" stroke-width="3.5" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span class="footer__logo-text">SOTUBA</span>
+        </a>
+        <p class="footer__tagline">Consultoría IT Académica</p>
+        <p class="footer__origin">
+          Proyecto de tesis — Universidad de Buenos Aires<br />
+          Facultad de Ciencias Económicas<br />
+          Licenciatura en Sistemas
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="footer__links-col">
+        <h4 class="footer__col-title">Navegación</h4>
+        <ul class="footer__links">
+          {quickLinks.map((link) => (
+            <li><a href={link.href} class="footer__link">{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact info -->
+      <div class="footer__links-col">
+        <h4 class="footer__col-title">Contacto</h4>
+        <ul class="footer__links">
+          <li class="footer__link-static">contacto@sotuba.com</li>
+          <li class="footer__link-static">Av. Córdoba 2122, CABA</li>
+          <li class="footer__link-static">Buenos Aires, Argentina</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer__bottom">
+      <p class="footer__copy">© {currentYear} SOTUBA. Todos los derechos reservados.</p>
+      <p class="footer__academic">Proyecto académico con fines educativos</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-4xl);
+  }
+
+  .footer__top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  /* Brand */
+  .footer__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer__logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer__logo-text {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-extrabold);
+    letter-spacing: 0.04em;
+    background: var(--gradient-brand-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .footer__tagline {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer__origin {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  /* Columns */
+  .footer__col-title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer__link {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .footer__link:hover {
+    color: var(--color-accent);
+  }
+
+  .footer__link-static {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  /* Bottom bar */
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-lg) 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer__copy {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .footer__academic {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .footer__top {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .footer__bottom {
+      flex-direction: column;
+      gap: var(--space-sm);
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,263 @@
+---
+---
+
+<section class="hero section" id="inicio">
+  <!-- Background effects -->
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__orb hero__orb--1"></div>
+    <div class="hero__orb hero__orb--2"></div>
+    <div class="hero__orb hero__orb--3"></div>
+    <div class="hero__grid"></div>
+  </div>
+
+  <div class="container hero__content">
+    <!-- Badge -->
+    <div class="hero__badge hero-fade-in">
+      <span class="hero__badge-dot"></span>
+      Proyecto de Tesis — UBA FCE
+    </div>
+
+    <!-- Headline -->
+    <h1 class="hero__title hero-fade-in-delay-1">
+      Transformamos ideas en<br />
+      <span class="text-gradient">soluciones tecnológicas</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="hero__subtitle hero-fade-in-delay-2">
+      Somos una consultora IT nacida en la Universidad de Buenos Aires.
+      Acompañamos a organizaciones en su camino hacia la transformación digital
+      con metodologías probadas y un equipo multidisciplinario.
+    </p>
+
+    <!-- CTAs -->
+    <div class="hero__actions hero-fade-in-delay-3">
+      <a href="#servicios" class="btn btn--primary">
+        Conocé nuestros servicios
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#contacto" class="btn btn--secondary">Contactanos</a>
+    </div>
+
+    <!-- Stats quick -->
+    <div class="hero__stats hero-fade-in-delay-3">
+      <div class="hero__stat">
+        <span class="hero__stat-number">6</span>
+        <span class="hero__stat-label">Consultores</span>
+      </div>
+      <div class="hero__stat-divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-number">+5</span>
+        <span class="hero__stat-label">Tecnologías</span>
+      </div>
+      <div class="hero__stat-divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-number">UBA</span>
+        <span class="hero__stat-label">FCE — Lic. en Sistemas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: calc(var(--space-5xl) + 60px);
+  }
+
+  /* ── Background ── */
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .hero__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+  }
+
+  .hero__orb--1 {
+    width: 600px;
+    height: 600px;
+    background: hsla(192, 75%, 48%, 0.08);
+    top: -15%;
+    left: 15%;
+    animation: float 12s ease-in-out infinite;
+  }
+
+  .hero__orb--2 {
+    width: 500px;
+    height: 500px;
+    background: hsla(215, 65%, 38%, 0.07);
+    top: 20%;
+    right: -5%;
+    animation: float 15s ease-in-out infinite reverse;
+  }
+
+  .hero__orb--3 {
+    width: 350px;
+    height: 350px;
+    background: hsla(192, 75%, 48%, 0.05);
+    bottom: -5%;
+    left: 50%;
+    animation: float 10s ease-in-out infinite 2s;
+  }
+
+  .hero__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(hsla(220, 20%, 30%, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsla(220, 20%, 30%, 0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+  }
+
+  /* ── Content ── */
+  .hero__content {
+    position: relative;
+    z-index: var(--z-base);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Badge */
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.4rem 1rem;
+    background: var(--color-bg-glass);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-accent-light);
+    margin-bottom: var(--space-2xl);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .hero__badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 8px var(--color-accent-glow);
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Title */
+  .hero__title {
+    font-size: var(--font-size-6xl);
+    font-weight: var(--font-weight-extrabold);
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-xl);
+    max-width: 800px;
+  }
+
+  /* Subtitle */
+  .hero__subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 580px;
+    margin-bottom: var(--space-2xl);
+    line-height: var(--line-height-normal);
+  }
+
+  /* Actions */
+  .hero__actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: var(--space-4xl);
+  }
+
+  /* Stats */
+  .hero__stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    padding: var(--space-lg) var(--space-2xl);
+    background: var(--color-bg-glass);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .hero__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .hero__stat-number {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-accent);
+  }
+
+  .hero__stat-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .hero__stat-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--color-border);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .hero {
+      padding-top: calc(var(--space-4xl) + 60px);
+    }
+
+    .hero__title {
+      font-size: var(--font-size-4xl);
+    }
+
+    .hero__subtitle {
+      font-size: var(--font-size-base);
+    }
+
+    .hero__stats {
+      flex-direction: column;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+    }
+
+    .hero__stat-divider {
+      width: 40px;
+      height: 1px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero__actions {
+      flex-direction: column;
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>

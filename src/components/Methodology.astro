@@ -1,0 +1,213 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Conocer el mundo',
+    description: 'Evaluamos la situación actual de la organización mediante entrevistas con referentes, estudio de procesos y análisis dimensional. Realizamos presentaciones intermedias y demos para validar el relevamiento.',
+    activities: ['Entrevistas con referentes', 'Análisis de procesos', 'Reframing dimensional', 'Demo de relevamiento'],
+    deliverable: 'Resumen de caso y Retrospectiva',
+  },
+  {
+    number: '02',
+    title: 'Analizar oportunidades',
+    description: 'Identificamos oportunidades de mejora con sustento en datos. Priorizamos iniciativas mediante FODA, relevamiento detallado y fundamentación metodológica para construir una propuesta sólida.',
+    activities: ['Sustento en datos', 'Análisis FODA', 'Priorización de oportunidades', 'Fundamentación metodológica'],
+    deliverable: 'Evaluación y Monografía',
+  },
+  {
+    number: '03',
+    title: 'Proponer una solución',
+    description: 'Diseñamos la solución integrada con métricas e indicadores KPI. Validamos la propuesta con la organización y evaluamos su viabilidad técnica y económica.',
+    activities: ['Producción integrada', 'Definición de KPIs', 'Validación con la organización', 'Análisis de viabilidad'],
+    deliverable: 'Monografía de solución',
+  },
+  {
+    number: '04',
+    title: 'Presentar resultados y conclusiones',
+    description: 'Fundamentamos los resultados obtenidos, realizamos la autoevaluación del proyecto y preparamos la defensa final con las conclusiones y recomendaciones para la organización.',
+    activities: ['Fundamentación de resultados', 'Autoevaluación', 'Defensa y exposición', 'Informe final'],
+    deliverable: 'Presentación final',
+  },
+];
+---
+
+<section class="methodology section" id="metodologia">
+  <div class="container">
+    <div class="methodology__header animate-on-scroll">
+      <span class="section-label">Metodología</span>
+      <h2 class="section-title">
+        Nuestro <span class="text-gradient">proceso</span> de trabajo
+      </h2>
+      <p class="section-subtitle">
+        Basado en el framework APLSI de Actuación Profesional del Licenciado en Sistemas de Información,
+        nuestro proceso combina rigor académico con aplicación práctica.
+      </p>
+    </div>
+
+    <div class="methodology__timeline stagger-children">
+      {steps.map((step, i) => (
+        <div class="methodology__step animate-on-scroll">
+          <div class="methodology__step-indicator">
+            <span class="methodology__step-number">{step.number}</span>
+            {i < steps.length - 1 && <div class="methodology__step-line"></div>}
+          </div>
+          <div class="methodology__step-content glass hover-glow">
+            <div class="methodology__step-header">
+              <h3 class="methodology__step-title">{step.title}</h3>
+              <span class="methodology__step-badge">{step.deliverable}</span>
+            </div>
+            <p class="methodology__step-desc">{step.description}</p>
+            <div class="methodology__step-activities">
+              {step.activities.map((activity) => (
+                <span class="methodology__step-tag">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  {activity}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .methodology__header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .methodology__timeline {
+    max-width: 750px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .methodology__step {
+    display: flex;
+    gap: var(--space-xl);
+    position: relative;
+  }
+
+  /* Indicator */
+  .methodology__step-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .methodology__step-number {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-brand);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-extrabold);
+    color: white;
+    z-index: var(--z-base);
+    box-shadow: 0 0 20px var(--color-accent-glow);
+  }
+
+  .methodology__step-line {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(to bottom, var(--color-accent), var(--color-border));
+    min-height: 24px;
+  }
+
+  /* Content */
+  .methodology__step-content {
+    padding: var(--space-lg) var(--space-xl);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-lg);
+    flex: 1;
+    transition: all var(--transition-base);
+  }
+
+  .methodology__step-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .methodology__step-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .methodology__step-badge {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-accent-light);
+    padding: 0.2rem 0.65rem;
+    background: hsla(192, 75%, 48%, 0.08);
+    border: 1px solid hsla(192, 75%, 48%, 0.15);
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
+  .methodology__step-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-normal);
+    margin-bottom: var(--space-md);
+  }
+
+  .methodology__step-activities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .methodology__step-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+    padding: 0.2rem 0.5rem;
+    background: hsla(220, 20%, 20%, 0.4);
+    border-radius: var(--radius-sm);
+  }
+
+  .methodology__step-tag svg {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 480px) {
+    .methodology__step {
+      gap: var(--space-md);
+    }
+
+    .methodology__step-content {
+      padding: var(--space-md);
+    }
+
+    .methodology__step-number {
+      width: 40px;
+      height: 40px;
+      font-size: var(--font-size-xs);
+    }
+
+    .methodology__step-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
